@@ -1,0 +1,22 @@
+{
+  "name": "requirements-workshop",
+  "version": "0.1.0",
+  "description": "A structured, multi-turn requirements discussion workflow for Codex conversations.",
+  "author": {
+    "name": "Local developer"
+  },
+  "interface": {
+    "displayName": "Requirements Workshop",
+    "shortDescription": "Clarify and confirm requirements through a focused chat workflow.",
+    "longDescription": "Runs a focused multi-turn product or task discovery conversation. It maintains a concise decision record, asks the next highest-value questions, and obtains a final requirements confirmation before implementation.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Read"],
+    "defaultPrompt": [
+      "Use Requirements Workshop to clarify this product idea.",
+      "Run a requirements discussion for this development task."
+    ],
+    "brandColor": "#0F766E"
+  },
+  "skills": "./skills/"
+}
