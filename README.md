@@ -1,3 +1,14 @@
+<!-- README-ARCHITECT: visual-shell -->
+<p align="center">
+  <img src="assets/readme/requirements-workshop-banner.svg" alt="requirements-workshop project banner" width="100%" />
+</p>
+<p align="center">
+  <a href="https://github.com/ChrysFu-FndVent/requirements-workshop/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ChrysFu-FndVent/requirements-workshop?style=for-the-badge&amp;logo=github" /></a>
+  <a href="https://github.com/ChrysFu-FndVent/requirements-workshop/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/ChrysFu-FndVent/requirements-workshop?style=for-the-badge" /></a>
+  <a href="https://github.com/ChrysFu-FndVent/requirements-workshop/search?l=Python"><img alt="Top language" src="https://img.shields.io/github/languages/top/ChrysFu-FndVent/requirements-workshop?style=for-the-badge" /></a>
+</p>
+<!-- README-ARCHITECT: visual-shell end -->
+
 <a id="readme-top"></a>
 
 # Requirements Workshop
