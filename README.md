@@ -125,6 +125,8 @@ $requirements-workshop:requirements-workshop 帮我梳理一个 AI 求职工作�
 
 已确认的信息不会被重新提问；尚未确认的联系人、市场证据、指标或排期会明确标为 `TBD`，不会凭空补全。对于纯技术或执行任务，Skill 会进入原先请求的交付流程，而不会强制生成 PRD。
 
+PRD 是后续规划、设计、实现和评审的主依据。需要决策理由、选项取舍、例外约束或实现细节时，Codex 会自动回看当前任务内完整的 `requirements-workshop` 对话记录；后续用户的明确指令优先于 PRD。若新任务无法访问原对话，它会要求提供原记录或可访问链接，而不会根据 PRD 臆测缺失细节。
+
 ### 安装与本地测试
 
 插件目录是自包含的。将整个目录放到本地 marketplace 的 `plugins/requirements-workshop` 路径，在 marketplace 配置中添加指向 `./plugins/requirements-workshop` 的条目，然后安装 `requirements-workshop` 插件。安装后开启新的 Codex 任务，使 Skill 被加载。
@@ -256,6 +258,8 @@ You can reply: 1D, 2C. For Other, write: 1E: your addition.
 For a product or feature discussion, once the user confirms the requirements this Skill passes `Confirmed so far` and the final confirmation summary directly to `create-prd`. It produces `PRD-[product-name].md` using that Skill's eight sections: Summary, Contacts, Background, Objective, Market Segment(s), Value Proposition(s), Solution, and Release.
 
 Confirmed information is not re-asked. Unconfirmed contacts, market evidence, metrics, and scheduling details are explicitly marked `TBD` rather than invented. Purely technical or execution tasks continue to their requested deliverable instead of being forced into a PRD.
+
+The PRD is the primary source for downstream planning, design, implementation, and review. When decision rationale, tradeoffs, exceptions, or implementation details are needed, Codex automatically reviews the complete `requirements-workshop` discussion in the current task; a later explicit user instruction overrides the PRD. In a new task where the prior discussion is unavailable, it asks for the original record or an accessible link rather than inferring missing details from the PRD.
 
 ### Install and test locally
 

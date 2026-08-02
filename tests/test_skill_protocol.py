@@ -37,6 +37,12 @@ class RequirementsWorkshopProtocolTests(unittest.TestCase):
         self.assertIn("PRD-[product-name].md", self.skill)
         self.assertIn("as `TBD` rather than inventing them", self.skill)
 
+    def test_uses_prd_first_and_workshop_record_for_details(self) -> None:
+        self.assertIn("treat it as the primary requirements source", self.skill)
+        self.assertIn("review the complete `requirements-workshop` discussion", self.skill)
+        self.assertIn("a later explicit user instruction overrides the PRD", self.skill)
+        self.assertIn("do not infer missing details from the PRD", self.skill)
+
 
 if __name__ == "__main__":
     unittest.main()

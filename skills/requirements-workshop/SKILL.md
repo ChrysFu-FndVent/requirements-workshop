@@ -1,6 +1,6 @@
 ---
 name: requirements-workshop
-description: Facilitate a structured, multi-turn discussion to clarify and confirm product or task requirements. Use when the user wants to explore, define, scope, or confirm a product, feature, workflow, implementation task, or ambiguous request before work begins. After confirmed product or feature requirements, hand the decision record to create-prd to produce a PRD.
+description: Facilitate a structured, multi-turn discussion to clarify and confirm product or task requirements. Use when the user wants to explore, define, scope, or confirm a product, feature, workflow, implementation task, or ambiguous request before work begins. After confirmed product or feature requirements, hand the decision record to create-prd to produce a PRD, then use that PRD as the primary source for downstream work.
 ---
 
 # Requirements Workshop
@@ -39,6 +39,14 @@ $requirements-workshop:requirements-workshop We need to decide the scope of this
 When invoking `create-prd`, provide a compact handoff containing: product or feature name, summary, user/problem, objectives and measurable outcomes, target segments, value propositions, in-scope and excluded capabilities, UX or workflow decisions, relevant technology/integrations, assumptions, dependencies/risks, and first-release versus future-release scope.
 
 Use the `create-prd` section order: Summary, Contacts, Background, Objective, Market Segment(s), Value Proposition(s), Solution, and Release. Mark details that were not confirmed during discovery as `TBD`; do not manufacture stakeholder names, customer research, competitive claims, dates, or metrics. The PRD is the product-requirements output of this combined workflow, not permission to begin implementation unless the user has also requested it.
+
+## Downstream source order
+
+For downstream planning, design, implementation, review, or other product work, read the generated PRD first and treat it as the primary requirements source. When the PRD lacks a decision rationale, option tradeoff, exception, or implementation-relevant detail, review the complete `requirements-workshop` discussion in the current Codex task before asking the user again.
+
+Apply this precedence: a later explicit user instruction overrides the PRD; the PRD overrides earlier workshop summaries; the full workshop record supplies supporting detail and rationale. If the record resolves the issue, proceed without reopening discovery. If neither the PRD nor the available workshop record resolves it, ask one focused follow-up question and update the PRD after confirmation.
+
+Only claim to have reviewed the full workshop record when it is available in the current task context. In a new task where the prior conversation is unavailable, request the original discussion record or its accessible link; do not infer missing details from the PRD.
 
 ## Question quality
 
