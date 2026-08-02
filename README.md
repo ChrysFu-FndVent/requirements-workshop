@@ -22,6 +22,7 @@
 - [讨论流程](#讨论流程)
 - [安装与本地测试](#安装与本地测试)
 - [验证](#验证)
+- [技术栈](#技术栈)
 - [兼容性边界](#兼容性边界)
 - [许可状态](#许可状态)
 
@@ -116,7 +117,13 @@ $requirements-workshop:requirements-workshop 帮我梳理一个 AI 求职工作�
 
 ```sh
 python3 /Users/cherys/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py .
+python3 tests/test_skill_protocol.py
 ```
+
+### 技术栈
+
+- Markdown：Codex Skill 指令与用户文档
+- Python（标准库）：验证 Skill 的交互协议，确保多轮、选项编号和最终确认要求没有被意外移除
 
 ### 兼容性边界
 
@@ -140,6 +147,7 @@ python3 /Users/cherys/.codex/skills/.system/plugin-creator/scripts/validate_plug
 - [Discussion flow](#discussion-flow)
 - [Install and test locally](#install-and-test-locally)
 - [Verify](#verify)
+- [Technology](#technology)
 - [Compatibility boundary](#compatibility-boundary)
 - [License status](#license-status)
 
@@ -234,7 +242,13 @@ Run this from the plugin root:
 
 ```sh
 python3 /Users/cherys/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py .
+python3 tests/test_skill_protocol.py
 ```
+
+### Technology
+
+- Markdown: Codex Skill instructions and user documentation
+- Python (standard library): validates the Skill interaction contract so the multi-turn flow, option lettering, and final confirmation requirement are not accidentally removed
 
 ### Compatibility boundary
 

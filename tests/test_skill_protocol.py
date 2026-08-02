@@ -1,0 +1,36 @@
+"""Verify the Requirements Workshop interaction contract.
+
+This intentionally uses only the Python standard library so anyone cloning the
+plugin can confirm that the documented discussion protocol remains intact.
+"""
+
+from __future__ import annotations
+
+from pathlib import Path
+import unittest
+
+
+SKILL_PATH = Path(__file__).parents[1] / "skills" / "requirements-workshop" / "SKILL.md"
+
+
+class RequirementsWorkshopProtocolTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.skill = SKILL_PATH.read_text(encoding="utf-8")
+
+    def test_requires_numbered_rounds_and_compact_replies(self) -> None:
+        self.assertIn("第 x 轮/共 y 轮", self.skill)
+        self.assertIn("1B, 2D", self.skill)
+        self.assertIn("1E: <custom answer>", self.skill)
+
+    def test_requires_option_and_confirmation_protocol(self) -> None:
+        self.assertIn("其他（请说明）", self.skill)
+        self.assertIn("Confirmed so far", self.skill)
+        self.assertIn("基本需求已确认完毕。请确认是否还有需要补充的需求？", self.skill)
+
+    def test_prevents_implementation_before_confirmation(self) -> None:
+        self.assertIn("Do not begin implementation until", self.skill)
+
+
+if __name__ == "__main__":
+    unittest.main()
