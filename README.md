@@ -42,7 +42,7 @@
 
 ### 简介
 
-`Requirements Workshop` 是一个 Codex Skill 插件，用于在开始执行产品、功能或开发任务前，以多轮对话逐步澄清和确认需求。它保留对话上下文和已确认的决策记录，避免把长篇需求盘点压缩成一次性表单。
+`Requirements Workshop` 是一个 Codex Skill 插件，用于在开始执行产品、功能或开发任务前，以多轮对话逐步澄清和确认需求。它保留对话上下文和已确认的决策记录，降低将长篇需求盘点压缩为一次性表单时遗漏细节的风险。
 
 ### 适用场景
 
@@ -145,7 +145,7 @@ python3 tests/test_skill_protocol.py
 
 ### 兼容性边界
 
-本版本仅依赖 Codex 已有的插件 Skill 发现能力和普通对话流。它不依赖宿主实现仍可能变化的 MCP App 回传消息路径。插件清单支持 Skills、MCP servers 和 app integrations，但当前没有已文档化的全局键盘快捷键或自定义斜杠命令字段。
+本发布包依赖 Codex 的插件清单、Skill 发现能力和普通对话流，因此不能原样安装到其他 Agent。核心的 `SKILL.md` 是通用的 Markdown 对话流程，可移植到支持类似 Skill 机制的 Agent，但需要按目标 Agent 的插件格式、触发方式和上下文能力进行适配。本版本不依赖宿主实现仍可能变化的 MCP App 回传消息路径；Codex 插件清单当前也没有已文档化的全局键盘快捷键或自定义斜杠命令字段。
 
 ### 许可状态
 
@@ -174,7 +174,7 @@ python3 tests/test_skill_protocol.py
 
 ### About
 
-`Requirements Workshop` is a Codex Skill plugin for clarifying and confirming product, feature, and development requirements through a focused multi-turn conversation before work begins. It keeps the discussion context and a compact record of confirmed decisions instead of forcing a long discovery process into a one-shot form.
+`Requirements Workshop` is a Codex Skill plugin for clarifying and confirming product, feature, and development requirements through a focused multi-turn conversation before work begins. It keeps the discussion context and a compact record of confirmed decisions, reducing the risk of detail loss when a long discovery process is compressed into a one-shot form.
 
 ### When to use it
 
@@ -277,7 +277,7 @@ python3 tests/test_skill_protocol.py
 
 ### Compatibility boundary
 
-This version relies only on established Codex plugin Skill discovery and normal conversation flow. It does not depend on an MCP App return-message path whose host behavior can vary. Plugin manifests support Skills, MCP servers, and app integrations, but currently expose no documented field for global keybindings or custom slash commands.
+This distribution relies on Codex plugin manifests, Skill discovery, and normal conversation flow, so it cannot be installed unchanged in another Agent. The core `SKILL.md` is a portable Markdown conversation workflow that can be adapted for Agents with a similar Skill mechanism, but their plugin format, activation model, and available context must be accounted for. This version does not depend on an MCP App return-message path whose host behavior can vary; Codex plugin manifests also expose no documented field for global keybindings or custom slash commands.
 
 ### License status
 
