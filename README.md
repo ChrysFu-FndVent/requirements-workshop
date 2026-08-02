@@ -31,6 +31,7 @@
 - [调用方式](#调用方式)
 - [回答格式](#回答格式)
 - [讨论流程](#讨论流程)
+- [PRD 交接](#prd-交接)
 - [安装与本地测试](#安装与本地测试)
 - [验证](#验证)
 - [技术栈](#技术栈)
@@ -118,6 +119,12 @@ $requirements-workshop:requirements-workshop 帮我梳理一个 AI 求职工作�
 5. 基本问题结束后，它给出确认摘要并询问：`基本需求已确认完毕。请确认是否还有需要补充的需求？`
 6. 用户补充需求时，只追问新增内容；用户明确确认后，才开始原先请求的产出或实施任务。
 
+### PRD 交接
+
+当讨论对象是产品或功能时，用户确认需求后，本 Skill 会将 `Confirmed so far` 与最终确认摘要直接交给 `create-prd`，生成遵循其 8 节结构的 `PRD-[产品名].md`：摘要、联系人、背景、目标、市场细分、价值主张、解决方案和发布计划。
+
+已确认的信息不会被重新提问；尚未确认的联系人、市场证据、指标或排期会明确标为 `TBD`，不会凭空补全。对于纯技术或执行任务，Skill 会进入原先请求的交付流程，而不会强制生成 PRD。
+
 ### 安装与本地测试
 
 插件目录是自包含的。将整个目录放到本地 marketplace 的 `plugins/requirements-workshop` 路径，在 marketplace 配置中添加指向 `./plugins/requirements-workshop` 的条目，然后安装 `requirements-workshop` 插件。安装后开启新的 Codex 任务，使 Skill 被加载。
@@ -156,6 +163,7 @@ python3 tests/test_skill_protocol.py
 - [Invocation](#invocation)
 - [Reply format](#reply-format)
 - [Discussion flow](#discussion-flow)
+- [PRD handoff](#prd-handoff)
 - [Install and test locally](#install-and-test-locally)
 - [Verify](#verify)
 - [Technology](#technology)
@@ -242,6 +250,12 @@ You can reply: 1D, 2C. For Other, write: 1E: your addition.
 4. From round two onward, a short `Confirmed so far` record carries decisions into the next batch.
 5. When the planned questions are complete, Codex presents a confirmation summary and asks: `基本需求已确认完毕。请确认是否还有需要补充的需求？`
 6. Additions trigger only the needed follow-up questions. Work starts only after the user explicitly confirms the requirements or asks to proceed.
+
+### PRD handoff
+
+For a product or feature discussion, once the user confirms the requirements this Skill passes `Confirmed so far` and the final confirmation summary directly to `create-prd`. It produces `PRD-[product-name].md` using that Skill's eight sections: Summary, Contacts, Background, Objective, Market Segment(s), Value Proposition(s), Solution, and Release.
+
+Confirmed information is not re-asked. Unconfirmed contacts, market evidence, metrics, and scheduling details are explicitly marked `TBD` rather than invented. Purely technical or execution tasks continue to their requested deliverable instead of being forced into a PRD.
 
 ### Install and test locally
 

@@ -1,6 +1,6 @@
 ---
 name: requirements-workshop
-description: Facilitate a structured, multi-turn discussion to clarify and confirm product or task requirements. Use when the user wants to explore, define, scope, or confirm a product, feature, workflow, implementation task, or ambiguous request before work begins.
+description: Facilitate a structured, multi-turn discussion to clarify and confirm product or task requirements. Use when the user wants to explore, define, scope, or confirm a product, feature, workflow, implementation task, or ambiguous request before work begins. After confirmed product or feature requirements, hand the decision record to create-prd to produce a PRD.
 ---
 
 # Requirements Workshop
@@ -28,9 +28,17 @@ $requirements-workshop:requirements-workshop We need to decide the scope of this
 6. At the beginning of each later turn, show a short `Confirmed so far` list. Carry decisions forward and do not ask the user to restate them unless a new answer conflicts with them.
 7. Update the working interpretation after each reply, then either ask the next focused batch or present a confirmation when scope and acceptance criteria are sufficiently clear.
 8. After the final estimated question round, present the confirmation summary and say `基本需求已确认完毕。请确认是否还有需要补充的需求？` Do not treat the end of the planned rounds as authorization to begin work.
-9. If the user has additions, acknowledge them, adjust the estimated total if needed, and continue with only the questions needed to confirm the new information. If the user explicitly has no additions or asks to proceed, say that requirements are confirmed and that you are starting the originally requested output task.
-10. The confirmation must distinguish confirmed requirements, explicitly excluded scope, acceptance criteria, dependencies/risks, and remaining open questions. Do not begin implementation until the user confirms or expressly asks to proceed despite open items.
-11. A user confirmation authorizes the requested implementation or planning work. A request to change the summary requires another focused question batch, beginning with the requested change.
+9. If the user has additions, acknowledge them, adjust the estimated total if needed, and continue with only the questions needed to confirm the new information. If the user explicitly has no additions or asks to proceed, say that requirements are confirmed and begin the appropriate confirmed output path.
+10. For a product or feature request, invoke `create-prd` after confirmation. Pass it the confirmed decision record and final summary as its input; do not repeat discovery questions that the workshop has already answered. Generate the `create-prd` 8-section Markdown document as `PRD-[product-name].md`. Preserve unknown facts as `TBD` rather than inventing them, especially contacts, market evidence, metrics, and delivery estimates.
+11. For a non-product task, continue with the originally requested implementation or planning output instead of forcing a PRD.
+12. The confirmation must distinguish confirmed requirements, explicitly excluded scope, acceptance criteria, dependencies/risks, and remaining open questions. Do not begin implementation until the user confirms or expressly asks to proceed despite open items.
+13. A user confirmation authorizes the requested implementation or planning work. A request to change the summary requires another focused question batch, beginning with the requested change.
+
+## PRD handoff
+
+When invoking `create-prd`, provide a compact handoff containing: product or feature name, summary, user/problem, objectives and measurable outcomes, target segments, value propositions, in-scope and excluded capabilities, UX or workflow decisions, relevant technology/integrations, assumptions, dependencies/risks, and first-release versus future-release scope.
+
+Use the `create-prd` section order: Summary, Contacts, Background, Objective, Market Segment(s), Value Proposition(s), Solution, and Release. Mark details that were not confirmed during discovery as `TBD`; do not manufacture stakeholder names, customer research, competitive claims, dates, or metrics. The PRD is the product-requirements output of this combined workflow, not permission to begin implementation unless the user has also requested it.
 
 ## Question quality
 

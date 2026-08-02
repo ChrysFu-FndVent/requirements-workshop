@@ -31,6 +31,12 @@ class RequirementsWorkshopProtocolTests(unittest.TestCase):
     def test_prevents_implementation_before_confirmation(self) -> None:
         self.assertIn("Do not begin implementation until", self.skill)
 
+    def test_hands_confirmed_product_requirements_to_create_prd(self) -> None:
+        self.assertIn("invoke `create-prd` after confirmation", self.skill)
+        self.assertIn("do not repeat discovery questions", self.skill)
+        self.assertIn("PRD-[product-name].md", self.skill)
+        self.assertIn("as `TBD` rather than inventing them", self.skill)
+
 
 if __name__ == "__main__":
     unittest.main()
