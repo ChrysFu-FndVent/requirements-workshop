@@ -31,17 +31,11 @@ class RequirementsWorkshopProtocolTests(unittest.TestCase):
     def test_prevents_implementation_before_confirmation(self) -> None:
         self.assertIn("Do not begin implementation until", self.skill)
 
-    def test_hands_confirmed_product_requirements_to_create_prd(self) -> None:
-        self.assertIn("invoke `create-prd` after confirmation", self.skill)
-        self.assertIn("do not repeat discovery questions", self.skill)
+    def test_returns_to_the_authorized_task_without_a_prd(self) -> None:
+        self.assertIn("start the originally requested implementation or planning output", self.skill)
+        self.assertIn("Do not automatically create a PRD", self.skill)
+        self.assertIn("Generate a PRD only when the user explicitly requests a PRD", self.skill)
         self.assertIn("PRD-[product-name].md", self.skill)
-        self.assertIn("as `TBD` rather than inventing them", self.skill)
-
-    def test_uses_prd_first_and_workshop_record_for_details(self) -> None:
-        self.assertIn("treat it as the primary requirements source", self.skill)
-        self.assertIn("review the complete `requirements-workshop` discussion", self.skill)
-        self.assertIn("a later explicit user instruction overrides the PRD", self.skill)
-        self.assertIn("do not infer missing details from the PRD", self.skill)
 
 
 if __name__ == "__main__":

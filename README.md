@@ -31,7 +31,7 @@
 - [调用方式](#调用方式)
 - [回答格式](#回答格式)
 - [讨论流程](#讨论流程)
-- [PRD 交接](#prd-交接)
+- [可选 PRD 输出](#可选-prd-输出)
 - [安装与本地测试](#安装与本地测试)
 - [验证](#验证)
 - [技术栈](#技术栈)
@@ -119,13 +119,11 @@ $requirements-workshop:requirements-workshop 帮我梳理一个 AI 求职工作�
 5. 基本问题结束后，它给出确认摘要并询问：`基本需求已确认完毕。请确认是否还有需要补充的需求？`
 6. 用户补充需求时，只追问新增内容；用户明确确认后，才开始原先请求的产出或实施任务。
 
-### PRD 交接
+用户确认后，Skill 会将已确认的需求和剩余风险带回原先请求的规划或实现任务。
 
-当讨论对象是产品或功能时，用户确认需求后，本 Skill 会将 `Confirmed so far` 与最终确认摘要直接交给 `create-prd`，生成遵循其 8 节结构的 `PRD-[产品名].md`：摘要、联系人、背景、目标、市场细分、价值主张、解决方案和发布计划。
+### 可选 PRD 输出
 
-已确认的信息不会被重新提问；尚未确认的联系人、市场证据、指标或排期会明确标为 `TBD`，不会凭空补全。对于纯技术或执行任务，Skill 会进入原先请求的交付流程，而不会强制生成 PRD。
-
-PRD 是后续规划、设计、实现和评审的主依据。需要决策理由、选项取舍、例外约束或实现细节时，Codex 会自动回看当前任务内完整的 `requirements-workshop` 对话记录；后续用户的明确指令优先于 PRD。若新任务无法访问原对话，它会要求提供原记录或可访问链接，而不会根据 PRD 臆测缺失细节。
+Skill 不会自动生成 PRD。只有用户在需求确认后明确提出“生成 PRD”时，才会生成 `PRD-[产品名].md`。文档包含摘要、联系人、背景、目标、市场细分、价值主张、解决方案和发布计划八个部分；已确认信息直接纳入，未确认事实标为 `TBD`，且不会重新开启泛泛的需求访谈。
 
 ### 安装与本地测试
 
@@ -165,7 +163,7 @@ python3 tests/test_skill_protocol.py
 - [Invocation](#invocation)
 - [Reply format](#reply-format)
 - [Discussion flow](#discussion-flow)
-- [PRD handoff](#prd-handoff)
+- [Optional PRD output](#optional-prd-output)
 - [Install and test locally](#install-and-test-locally)
 - [Verify](#verify)
 - [Technology](#technology)
@@ -253,13 +251,11 @@ You can reply: 1D, 2C. For Other, write: 1E: your addition.
 5. When the planned questions are complete, Codex presents a confirmation summary and asks: `基本需求已确认完毕。请确认是否还有需要补充的需求？`
 6. Additions trigger only the needed follow-up questions. Work starts only after the user explicitly confirms the requirements or asks to proceed.
 
-### PRD handoff
+After confirmation, the Skill carries the confirmed requirements and remaining risks into the originally requested planning or implementation task.
 
-For a product or feature discussion, once the user confirms the requirements this Skill passes `Confirmed so far` and the final confirmation summary directly to `create-prd`. It produces `PRD-[product-name].md` using that Skill's eight sections: Summary, Contacts, Background, Objective, Market Segment(s), Value Proposition(s), Solution, and Release.
+### Optional PRD output
 
-Confirmed information is not re-asked. Unconfirmed contacts, market evidence, metrics, and scheduling details are explicitly marked `TBD` rather than invented. Purely technical or execution tasks continue to their requested deliverable instead of being forced into a PRD.
-
-The PRD is the primary source for downstream planning, design, implementation, and review. When decision rationale, tradeoffs, exceptions, or implementation details are needed, Codex automatically reviews the complete `requirements-workshop` discussion in the current task; a later explicit user instruction overrides the PRD. In a new task where the prior discussion is unavailable, it asks for the original record or an accessible link rather than inferring missing details from the PRD.
+The Skill does not generate a PRD automatically. Only when the user explicitly asks to generate a PRD after confirmation does it create `PRD-[product-name].md`. The document contains eight sections: Summary, Contacts, Background, Objective, Market Segment(s), Value Proposition(s), Solution, and Release. Confirmed information is carried in directly, missing facts are marked `TBD`, and no generic discovery loop is restarted.
 
 ### Install and test locally
 

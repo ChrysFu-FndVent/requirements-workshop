@@ -1,21 +1,21 @@
 {
   "name": "requirements-workshop",
-  "version": "0.2.1",
-  "description": "A structured, multi-turn requirements discussion, confirmed PRD, and PRD-first delivery workflow for Codex conversations.",
+  "version": "0.3.0",
+  "description": "A structured, multi-turn requirements discussion workflow with optional, explicitly requested PRD output for Codex conversations.",
   "author": {
     "name": "Local developer"
   },
   "interface": {
     "displayName": "Requirements Workshop",
     "shortDescription": "Clarify and confirm requirements through a focused chat workflow.",
-    "longDescription": "Runs a focused multi-turn product or task discovery conversation. It maintains a concise decision record, creates a PRD from confirmed product or feature requirements, and uses that PRD as the primary source for downstream work.",
+    "longDescription": "Runs a focused multi-turn product or task discovery conversation. It maintains a concise decision record, obtains final confirmation, and generates a structured PRD only when the user explicitly requests one.",
     "developerName": "Local developer",
     "category": "Productivity",
     "capabilities": ["Interactive", "Read"],
     "defaultPrompt": [
       "Use Requirements Workshop to clarify this product idea.",
       "Run a requirements discussion for this development task.",
-      "Confirm this feature scope and create a PRD."
+      "Confirm this feature scope, then generate a PRD."
     ],
     "brandColor": "#0F766E"
   },
