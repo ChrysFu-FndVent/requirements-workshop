@@ -1,0 +1,36 @@
+{
+  "name": "requirements-workshop",
+  "version": "0.4.0",
+  "description": "Turn ambiguous requests into user-confirmed delivery boundaries before Codex starts building.",
+  "author": {
+    "name": "Cherys",
+    "email": "cherys.fu@qq.com",
+    "url": "https://github.com/ChrysFu-FndVent"
+  },
+  "homepage": "https://github.com/ChrysFu-FndVent/requirements-workshop#readme",
+  "repository": "https://github.com/ChrysFu-FndVent/requirements-workshop",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "codex-plugin",
+    "requirements-engineering",
+    "product-discovery",
+    "prompt-engineering"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Requirements Workshop",
+    "shortDescription": "Confirm delivery boundaries before implementation.",
+    "longDescription": "Runs a focused multi-turn product or task discovery conversation, maintains a concise decision record, and obtains explicit confirmation before Codex starts planning or implementation.",
+    "developerName": "Cherys",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "websiteURL": "https://github.com/ChrysFu-FndVent/requirements-workshop",
+    "defaultPrompt": [
+      "Clarify this product idea before implementation.",
+      "Confirm the scope of this development task.",
+      "Clarify this feature, then generate a PRD."
+    ],
+    "brandColor": "#0F766E"
+  }
+}

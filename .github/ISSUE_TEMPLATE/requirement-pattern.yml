@@ -1,0 +1,37 @@
+name: New requirement pattern
+description: Share a requirements scenario that the current examples do not cover.
+title: "[Requirement pattern]: "
+labels: ["requirement-pattern"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Scenario category
+      options:
+        - New product or application
+        - Existing feature change
+        - External integration
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: initial-request
+    attributes:
+      label: Initial ambiguous request
+      description: Provide the request without credentials, secrets, or personal data.
+    validations:
+      required: true
+  - type: textarea
+    id: missing-decisions
+    attributes:
+      label: Decisions the workshop should uncover
+      description: List the scope, workflow, data, permission, integration, or acceptance decisions that matter.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-boundary
+    attributes:
+      label: Expected confirmed boundary
+      description: Describe what a useful final confirmation would make explicit.
+    validations:
+      required: true
